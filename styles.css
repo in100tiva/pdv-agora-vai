@@ -1,0 +1,211 @@
+:root {
+    --font-size: 1rem;
+    --padding: 1rem;
+    --modal-width: 90vw;
+    --modal-height: 80vh;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #ff6b6b;
+    --background-color: #f5f5f5;
+    --card-bg-color: white;
+    --card-border-radius: 0.5rem;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --card-transition: transform 0.3s ease;
+    --card-hover-transform: scale(1.05);
+    --card-title-color: #333;
+    --card-price-color: #007bff;
+    --modal-bg-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    --modal-content-bg-color: white;
+    --close-btn-color: #aaa;
+    --close-btn-hover-color: black;
+    --button-bg-color: #007bff;
+    --button-hover-bg-color: #0056b3;
+    --button-text-color: white;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    overflow: hidden; /* Prevent scrolling of the body */
+  }
+  
+  .container {
+    padding: var(--padding);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  .mesa-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  input, button {
+    font-size: var(--font-size);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+  }
+  
+  input {
+    border: 1px solid var(--secondary-color);
+  }
+  
+  button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  .tabs-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tabs-list button {
+    background-color: var(--secondary-color);
+  }
+  
+  .tabs-list button.active {
+    background-color: var(--primary-color);
+  }
+  
+  .tabs-content .card {
+    background-color: var(--card-bg-color);
+    padding: var(--padding);
+    box-shadow: var(--card-shadow);
+    margin-bottom: var(--padding);
+    border-radius: var(--card-border-radius);
+    max-width: 768px;
+    margin: auto; /* Center align */
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: var(--modal-content-bg-color);
+    padding: var(--padding);
+    border: 1px solid #888;
+    width: calc(250px * 2 + 3rem); /* 2 cards width + padding */
+    max-height: 800px;
+    overflow-y: auto;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    position: relative;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 32px; /* Added margin-bottom */
+  }
+  
+  .close {
+    color: var(--close-btn-color);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: var(--close-btn-hover-color);
+  }
+  
+  .produtos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--padding);
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg-color);
+    box-shadow: var(--card-shadow);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    transition: var(--card-transition);
+    max-width: 250px;
+    margin: auto; /* Center align */
+  }
+  
+  .card:hover {
+    transform: var(--card-hover-transform);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-content {
+    padding: var(--padding);
+    flex: 1;
+  }
+  
+  .card-content h3 {
+    margin: 0 0 0.5rem;
+    color: var(--card-title-color);
+    font-size: 1.25rem;
+  }
+  
+  .card-content p {
+    margin: 0.5rem 0;
+    color: var(--secondary-color);
+  }
+  
+  .card-content .font-bold {
+    color: var(--card-price-color);
+    font-size: 1.5rem;
+  }
+  
+  .card-content button {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-content button:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  .close-mesa-btn {
+    max-width: 160px;
+    margin-top: 16px;
+    margin-left: 0;
+  }
+  

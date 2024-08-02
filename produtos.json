@@ -1,0 +1,15 @@
+[
+    { "id": 1, "nome": "Café Expresso", "preco": 3.5, "descricao": "Café puro e forte", "imagem": "/api/placeholder/300/200" },
+    { "id": 2, "nome": "Cappuccino", "preco": 4.5, "descricao": "Café com leite e espuma", "imagem": "/api/placeholder/300/200" },
+    { "id": 3, "nome": "Bolo de Chocolate", "preco": 5.0, "descricao": "Bolo caseiro de chocolate", "imagem": "/api/placeholder/300/200" },
+    { "id": 4, "nome": "Sanduíche Natural", "preco": 6.5, "descricao": "Sanduíche leve e saudável", "imagem": "/api/placeholder/300/200" },
+    { "id": 5, "nome": "Suco de Laranja", "preco": 4.0, "descricao": "Suco natural da fruta", "imagem": "/api/placeholder/300/200" },
+    { "id": 6, "nome": "Croissant", "preco": 3.0, "descricao": "Croissant francês tradicional", "imagem": "/api/placeholder/300/200" },
+    { "id": 7, "nome": "Chá Verde", "preco": 3.0, "descricao": "Chá verde refrescante", "imagem": "/api/placeholder/300/200" },
+    { "id": 8, "nome": "Muffin de Blueberry", "preco": 4.0, "descricao": "Muffin recheado com blueberry", "imagem": "/api/placeholder/300/200" },
+    { "id": 9, "nome": "Smoothie de Frutas", "preco": 5.5, "descricao": "Smoothie de frutas variadas", "imagem": "/api/placeholder/300/200" },
+    { "id": 10, "nome": "Torta de Limão", "preco": 4.5, "descricao": "Torta de limão cremosa", "imagem": "/api/placeholder/300/200" },
+    { "id": 11, "nome": "Café Gelado", "preco": 4.0, "descricao": "Café gelado refrescante", "imagem": "/api/placeholder/300/200" },
+    { "id": 12, "nome": "Brownie", "preco": 3.5, "descricao": "Brownie de chocolate", "imagem": "/api/placeholder/300/200" }
+  ]
+  
