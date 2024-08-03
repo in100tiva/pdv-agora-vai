@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recibo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Recibo</h1>
+    <div id="reciboContent"></div>
+    <button onclick="window.print()">Imprimir Recibo</button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reciboContent = document.getElementById('reciboContent');
+      const recibo = JSON.parse(localStorage.getItem('recibo'));
+
+      if (recibo) {
+        const pagamentosDetalhes = recibo.pagamentosParciais.map((valor, index) => `Pagamento ${index + 1}: R$ ${valor.toFixed(2)}`).join('<br>');
+
+        reciboContent.innerHTML = `
+          <p><strong>Mesa:</strong> ${recibo.numeroMesa}</p>
+          <p><strong>Método de Pagamento:</strong> ${recibo.metodoPagamento}</p>
+          <p><strong>Observações:</strong> ${recibo.observacoes}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Qtd</th>
+                <th>Preço</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${recibo.carrinho.map(item => `
+                <tr>
+                  <td>${item.nome}</td>
+                  <td>${item.quantidade}</td>
+                  <td>R$ ${item.preco.toFixed(2)}</td>
+                  <td>R$ ${(item.preco * item.quantidade).toFixed(2)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+          <p><strong>Total Inicial:</strong> R$ ${recibo.carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0).toFixed(2)}</p>
+          <p><strong>Pagamentos Parciais:</strong><br>${pagamentosDetalhes}</p>
+          <p><strong>Total Abatido:</strong> R$ ${recibo.totalAbatido.toFixed(2)}</p>
+          ${recibo.servico ? `<p><strong>Serviço (10%):</strong> R$ ${recibo.servico.toFixed(2)}</p>` : ''}
+          <p><strong>Total Pendente:</strong> R$ ${recibo.totalPendente.toFixed(2)}</p>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -10,7 +10,7 @@
   <div class="container">
     <h1>PDV Cafeteria</h1>
     <div class="mesa-controls">
-      <input type="number" id="mesaInput" placeholder="Número da Nova Mesa">
+      <input type="number" id="mesaInput" placeholder="Número da Nova Mesa" max="99" min="1">
       <button id="abrirMesaBtn">Abrir Nova Mesa</button>
     </div>
     <div id="tabsList" class="tabs-list"></div>
@@ -19,7 +19,52 @@
       <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
         <h2>Catálogo de Produtos</h2>
+        <select id="categoriaSelect">
+          <option value="Todas">Todas</option>
+          <option value="Bebidas">Bebidas</option>
+          <option value="Doces">Doces</option>
+          <option value="Lanches">Lanches</option>
+        </select>
         <div id="produtosContainer" class="produtos-container"></div>
+      </div>
+    </div>
+    <div id="modalPagamento" class="modal">
+      <div class="modal-content">
+        <span id="closeModalPagamento" class="close">&times;</span>
+        <h2>Pagamento e Observações</h2>
+        <form id="formPagamento">
+          <div class="form-group">
+            <label for="metodoPagamento">Método de Pagamento</label>
+            <select id="metodoPagamento" required>
+              <option value="Cartão de Crédito">Cartão de Crédito</option>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Pix">Pix</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" id="incluirServico">
+            <label for="incluirServico">Incluir 10% de serviço</label>
+          </div>
+          <button type="submit">Finalizar Pedido</button>
+        </form>
+      </div>
+    </div>
+    <div id="modalPagamentoParcial" class="modal">
+      <div class="modal-content">
+        <span id="closeModalPagamentoParcial" class="close">&times;</span>
+        <h2>Pagamento Parcial</h2>
+        <form id="formPagamentoParcial">
+          <div class="form-group">
+            <label for="valorPagamentoParcial">Valor do Pagamento Parcial</label>
+            <input type="number" id="valorPagamentoParcial" step="0.01" min="0" required>
+          </div>
+          <button type="submit">Abater Valor</button>
+        </form>
+        <div id="resumoPagamentoParcial"></div>
       </div>
     </div>
   </div>
