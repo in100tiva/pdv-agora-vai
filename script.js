@@ -99,13 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
       modalPagamentoParcial.style.display = 'flex';
     }
   
-    function adicionarAoCarrinho(produto, numeroMesa) {
+    function adicionarAoCarrinho(produto, quantidade, numeroMesa) {
       const mesa = mesas[numeroMesa];
       const itemExistente = mesa.carrinho.find(item => item.id === produto.id);
       if (itemExistente) {
-        itemExistente.quantidade += 1;
+        itemExistente.quantidade += quantidade;
       } else {
-        mesa.carrinho.push({ ...produto, quantidade: 1 });
+        mesa.carrinho.push({ ...produto, quantidade: quantidade });
       }
       renderTabs();
     }
@@ -244,9 +244,21 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="font-bold">R$ ${produto.preco.toFixed(2)}</p>
         `;
   
+        const quantidadeInput = document.createElement('input');
+        quantidadeInput.type = 'number';
+        quantidadeInput.value = 1;
+        quantidadeInput.min = 1;
+        quantidadeInput.className = 'quantidade-input';
+  
         const addButton = document.createElement('button');
         addButton.textContent = 'Adicionar ao Carrinho';
-        addButton.addEventListener('click', () => adicionarAoCarrinho(produto, mesaAtual));
+        addButton.addEventListener('click', () => {
+          const quantidade = parseInt(quantidadeInput.value);
+          if (!isNaN(quantidade) && quantidade > 0) {
+            adicionarAoCarrinho(produto, quantidade, mesaAtual);
+          }
+        });
+        cardContent.appendChild(quantidadeInput);
         cardContent.appendChild(addButton);
   
         card.appendChild(cardContent);
@@ -281,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function finalizarPedido(numeroMesa, metodoPagamento, observacoes, incluirServico) {
       const mesa = mesas[numeroMesa];
-      let total = calcularTotal(mesa.carrinho);
+      let total = parseFloat(calcularTotal(mesa.carrinho));
       let servico = 0;
       if (incluirServico) {
         servico = total * 0.10;
