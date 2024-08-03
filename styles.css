@@ -15,7 +15,7 @@
   --card-hover-transform: scale(1.05);
   --card-title-color: #e0e0e0;
   --card-price-color: #007bff;
-  --modal-bg-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  --modal-bg-color: rgba(0, 0, 0, 0.8);
   --modal-content-bg-color: #1e1e1e;
   --close-btn-color: #aaa;
   --close-btn-hover-color: white;
@@ -34,7 +34,6 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  overflow: hidden; /* Prevent scrolling of the body */
 }
 
 .container {
@@ -103,7 +102,7 @@ button:hover {
   margin-bottom: var(--padding);
   border-radius: var(--card-border-radius);
   max-width: 768px;
-  margin: auto; /* Center align */
+  margin: auto;
 }
 
 .modal {
@@ -124,8 +123,8 @@ button:hover {
   background-color: var(--modal-content-bg-color);
   padding: var(--padding);
   border: 1px solid #888;
-  width: calc(250px * 2 + 3rem); /* 2 cards width + padding */
-  max-height: 600px; /* Reduced max-height */
+  width: calc(250px * 2 + 3rem);
+  max-height: 600px;
   overflow-y: auto;
   border-radius: var(--card-border-radius);
   box-shadow: var(--card-shadow);
@@ -133,7 +132,7 @@ button:hover {
 }
 
 .modal-content h2 {
-  margin-bottom: 32px; /* Added margin-bottom */
+  margin-bottom: 32px;
 }
 
 .close {
@@ -191,7 +190,7 @@ select, textarea, input {
   overflow: hidden;
   transition: var(--card-transition);
   max-width: 250px;
-  margin: auto; /* Center align */
+  margin: auto;
 }
 
 .card:hover {
@@ -224,20 +223,10 @@ select, textarea, input {
   font-size: 1.5rem;
 }
 
-.card-content label {
-  display: block;
-  margin: 0.5rem 0;
-  color: var(--secondary-color);
-}
-
-.card-content input[type="number"] {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  border: 1px solid var(--secondary-color);
-  border-radius: 0.25rem;
-  background-color: var(--background-color);
-  color: var(--text-color);
+.quantidade-input {
+  width: 60px;
+  margin-right: 10px;
+  text-align: center;
 }
 
 .card-content button {
